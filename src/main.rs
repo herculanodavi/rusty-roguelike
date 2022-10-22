@@ -4,8 +4,8 @@ mod map;
 
 mod prelude {
     pub use bracket_lib::prelude::*;
-    pub const SCREEN_WIDTH: i32 = 0;
-    pub const SCREEN_HEIGHT: i32 = 0;
+    pub const SCREEN_WIDTH: u32 = 80;
+    pub const SCREEN_HEIGHT: u32 = 50;
     pub use crate::map::*;
 }
 
