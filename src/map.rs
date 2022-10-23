@@ -43,6 +43,14 @@ impl Map {
         }
     }
 
+    pub fn tile_at(&self, point: Point) -> Option<&TileType> {
+        try_idx(point).and_then(|idx| self.tiles.get(idx))
+    }
+
+    pub fn mut_tile_at(&mut self, point: Point) -> Option<&mut TileType> {
+        try_idx(point).and_then(|idx| self.tiles.get_mut(idx))
+    }
+
     pub fn is_steppable(&self, point: Point) -> bool {
         match self.tiles.get(row_first_idx(
             point.x.unsigned_abs(),
