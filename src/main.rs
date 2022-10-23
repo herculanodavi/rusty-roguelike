@@ -1,9 +1,9 @@
 #![warn(clippy::pedantic)]
 
+mod camera;
 mod map;
 mod map_builder;
 mod player;
-mod camera;
 
 mod prelude {
     pub use bracket_lib::prelude::*;
@@ -11,10 +11,10 @@ mod prelude {
     pub const SCREEN_HEIGHT: i32 = 50;
     pub const DISPLAY_WIDTH: i32 = SCREEN_WIDTH / 2;
     pub const DISPLAY_HEIGHT: i32 = SCREEN_HEIGHT / 2;
+    pub use crate::camera::*;
     pub use crate::map::*;
     pub use crate::map_builder::*;
     pub use crate::player::*;
-    pub use crate::camera::*;
 }
 
 use prelude::*;
@@ -22,7 +22,7 @@ use prelude::*;
 struct State {
     map: Map,
     player: Player,
-    camera: Camera
+    camera: Camera,
 }
 
 impl State {
@@ -32,7 +32,7 @@ impl State {
         Self {
             map: map_builder.map,
             player: Player::new(map_builder.player_start),
-            camera: Camera::new(map_builder.player_start)
+            camera: Camera::new(map_builder.player_start),
         }
     }
 }
