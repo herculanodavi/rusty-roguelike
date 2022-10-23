@@ -1,3 +1,5 @@
+![build/test/lint](https://github.com/herculanodavi/rusty-roguelike/actions/workflows/build_and_test.yml/badge.svg)
+
 # Rusty Roguelike
 Hands-on Game Development with Rust course project from Educative.
 
