@@ -12,7 +12,7 @@ impl MapBuilder {
         let mut mb = MapBuilder {
             map: Map::new(),
             rooms: Vec::new(),
-            player_start: Point::zero()
+            player_start: Point::zero(),
         };
 
         mb.fill(TileType::Wall);
