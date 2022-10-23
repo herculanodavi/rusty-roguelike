@@ -1,7 +1,6 @@
 use crate::prelude::*;
 const NUM_TILES: usize = (SCREEN_WIDTH * SCREEN_WIDTH) as usize;
 
-#[allow(dead_code)]
 #[derive(Copy, Clone, PartialEq, Eq)]
 pub enum TileType {
     Wall,
@@ -16,7 +15,6 @@ pub fn row_first_idx(x: u32, y: u32) -> usize {
     ((y * SCREEN_WIDTH) + x) as usize
 }
 
-#[allow(dead_code)]
 pub fn try_idx(point: Point) -> Option<usize> {
     if is_in_bounds(point) {
         Some(row_first_idx(
@@ -28,7 +26,6 @@ pub fn try_idx(point: Point) -> Option<usize> {
     }
 }
 
-#[allow(dead_code)]
 pub fn is_in_bounds(point: Point) -> bool {
     point.x >= 0
         && point.x.unsigned_abs() < SCREEN_WIDTH
@@ -43,9 +40,11 @@ impl Map {
         }
     }
 
+    /*
     pub fn tile_at(&self, point: Point) -> Option<&TileType> {
         try_idx(point).and_then(|idx| self.tiles.get(idx))
     }
+    */
 
     pub fn mut_tile_at(&mut self, point: Point) -> Option<&mut TileType> {
         try_idx(point).and_then(|idx| self.tiles.get_mut(idx))
@@ -71,7 +70,7 @@ impl Map {
                             ctx.set(x, y, YELLOW, BLACK, to_cp437('.'));
                         }
                         TileType::Wall => {
-                            ctx.set(x, y, GREEN, BLACK, to_cp437('#'));
+                            ctx.set(x, y, BLACK, BLACK, to_cp437('#'));
                         }
                     },
                 }
